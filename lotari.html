@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Winner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        .winner {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            background-color: #28a745;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0);
+            animation: fadeIn 3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .button {
+            font-size: 1.2rem;
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lottery Winner Selection</h1>
+    <button class="button" onclick="selectWinner()">Select Winner</button>
+    <div id="winner" class="winner"></div>
+
+    <script>
+        function selectWinner() {
+            const participants = ['Rifat', 'John', 'Alice', 'Sarah', 'David', 'Sami'];
+            const randomIndex = Math.floor(Math.random() * participants.length);
+            const winner = participants[randomIndex];
+            
+            // Update the winner in the HTML
+            const winnerDiv = document.getElementById('winner');
+            winnerDiv.textContent = `The winner is: ${winner}`;
+            
+            // Show the winner with animation
+            winnerDiv.style.display = 'inline-block';
+            
+        }
+    </script>
+
+</body>
+</html>
